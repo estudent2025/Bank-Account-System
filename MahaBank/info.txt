@@ -1,0 +1,22 @@
+REQUIREMENTS
+- JDK 21 (JDK 17+ should also work)
+- VS Code or any editor
+- A web browser
+
+Compile: javac -d out src\mahabank\*.java
+Start:  java -cp out mahabank.BankServer
+Open http://localhost:8080
+
+Stop the server with Ctrl+C in the terminal.
+
+FEATURES
+- Create Savings and Current accounts with unique account numbers.
+- Enter an opening balance when creating an account.
+- Deposit, withdraw and transfer between accounts.
+- Monthly interest calculation for Savings accounts.
+- Custom exceptions for invalid amounts, missing accounts, and insufficient funds.
+- Transaction history.
+- Data is saved in the data folder and reloaded when the server starts.
+- Basic Java concepts: inheritance, encapsulation, exceptions, collections, streams,
+  file handling, synchronization, and HTTP request handling.
+

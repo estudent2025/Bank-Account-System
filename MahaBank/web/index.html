@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maha Bank | Digital Banking</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark">M</div>
+    <div><h1>MAHA BANK</h1><p>YOUR MONEY. YOUR CONTROL.</p></div>
+    <span class="live"><i></i> LOCAL BANKING DEMO</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">DIGITAL BANKING DASHBOARD</p>
+        <h2>Banking made <span>smarter.</span></h2>
+        <p class="muted">Manage accounts, move money, and review transactions in one place.</p>
+      </div>
+      <div class="hero-symbol">₹</div>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card"><p>Total accounts</p><strong id="accountCount">0</strong><small>Across savings and current</small></article>
+      <article class="stat-card"><p>Total balance</p><strong id="totalBalance">₹0.00</strong><small>Combined account balance</small></article>
+      <article class="stat-card"><p>Savings accounts</p><strong id="savingsCount">0</strong><small>Earn 4% annual interest</small></article>
+    </section>
+
+    <div id="notice" class="notice" role="status"></div>
+
+    <section class="layout">
+      <div class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">GET STARTED</p><h3>Open an account</h3></div><span class="number-badge">01</span></div>
+        <form data-action="create">
+          <label>Account holder name<input name="name" placeholder="Enter full name" required maxlength="60"></label>
+          <label>Account type<select name="type"><option value="SAVINGS">Savings account</option><option value="CURRENT">Current account</option></select></label>
+          <label>Opening balance (₹)<input name="balance" type="number" min="0" step="0.01" placeholder="e.g. 15000" required></label>
+          <button class="primary" type="submit">Create account <span>↗</span></button>
+          <p class="hint">A unique account number is generated automatically.</p>
+        </form>
+      </div>
+
+      <div class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">EVERYDAY BANKING</p><h3>Deposit or withdraw</h3></div><span class="number-badge">02</span></div>
+        <form data-action="deposit">
+          <label>Account number<input name="account" type="number" placeholder="e.g. 1001" required></label>
+          <label>Deposit amount (₹)<input name="amount" type="number" min="0.01" step="0.01" placeholder="Amount to deposit" required></label>
+          <button class="primary" type="submit">Deposit money <span>↗</span></button>
+        </form>
+        <div class="soft-divider"></div>
+        <form data-action="withdraw">
+          <label>Account number<input name="account" type="number" placeholder="e.g. 1001" required></label>
+          <label>Withdrawal amount (₹)<input name="amount" type="number" min="0.01" step="0.01" placeholder="Amount to withdraw" required></label>
+          <button class="danger" type="submit">Withdraw money <span>↗</span></button>
+        </form>
+      </div>
+
+      <div class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">MOVE FUNDS</p><h3>Transfer money</h3></div><span class="number-badge">03</span></div>
+        <form data-action="transfer">
+          <label>From account<input name="from" type="number" placeholder="Sender account number" required></label>
+          <label>To account<input name="to" type="number" placeholder="Receiver account number" required></label>
+          <label>Transfer amount (₹)<input name="amount" type="number" min="0.01" step="0.01" placeholder="Amount to transfer" required></label>
+          <button class="primary" type="submit">Transfer funds <span>↗</span></button>
+          <p class="hint">Transfers are rejected if the sender's balance is too low.</p>
+        </form>
+      </div>
+
+      <div class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">SAVINGS BENEFIT</p><h3>Monthly interest</h3></div><span class="number-badge">04</span></div>
+        <p class="muted">Savings accounts earn 4% annual interest, calculated monthly. Current accounts do not earn interest in this demo.</p>
+        <form data-action="interest">
+          <label>Savings account number<input name="account" type="number" placeholder="Enter savings account number" required></label>
+          <button class="primary" type="submit">Credit monthly interest <span>↗</span></button>
+        </form>
+        <p class="hint">Interest is credited only when you press this button.</p>
+      </div>
+    </section>
+
+    <section class="panel table-panel">
+      <div class="panel-heading"><div><p class="eyebrow">YOUR BANKING</p><h3>Accounts overview</h3></div><button class="secondary" id="refreshBtn" type="button">Refresh ↻</button></div>
+      <div class="table-wrap"><table><thead><tr><th>Account</th><th>Holder</th><th>Type</th><th>Balance</th><th>Monthly interest</th></tr></thead><tbody id="accountsBody"></tbody></table></div>
+    </section>
+
+    <section class="panel table-panel">
+      <div class="panel-heading"><div><p class="eyebrow">RECENT ACTIVITY</p><h3>Transaction history</h3></div></div>
+      <div class="table-wrap"><table><thead><tr><th>Date & time</th><th>Account</th><th>Type</th><th>Details</th><th>Amount</th><th>Balance after</th></tr></thead><tbody id="transactionsBody"></tbody></table></div>
+    </section>
+    <footer>MAHA BANK · Java Programming Project · Local educational demo only</footer>
+  </main>
+</body>
+</html>
